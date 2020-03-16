@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DriverFactory.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">carlookup</a> &gt; <a href="index.source.html" class="el_package">org.com.friday.carlookup.utils</a> &gt; <span class="el_source">DriverFactory.java</span></div><h1>DriverFactory.java</h1><pre class="source lang-java linenums">package org.com.friday.carlookup.utils;
+
+import java.io.File;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.concurrent.TimeUnit;
+
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.ITestResult;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+<span class="fc" id="L23">public class DriverFactory {</span>
+
+<span class="fc" id="L25">	public WebDriver driver = null;</span>
+<span class="fc" id="L26">	public static int maxPageLoadWait = 100;</span>
+<span class="fc" id="L27">	private static ThreadLocal&lt;WebDriver&gt; webDriver = new ThreadLocal&lt;WebDriver&gt;();</span>
+	
+	/**
+	 * Utility method to configure &amp; initialize driver instance based on browserName
+	 * passed from testng.xml file.
+	 * @param browserName
+	 * @return null
+	 */
+	public void initializeWebDriver(String browserName){
+<span class="fc" id="L36">		DesiredCapabilities capability = new DesiredCapabilities();</span>
+
+<span class="pc bpc" id="L38" title="1 of 2 branches missed.">		if(browserName.equalsIgnoreCase(&quot;CHROME&quot;)){</span>
+<span class="fc" id="L39">			WebDriverManager.chromedriver().setup();</span>
+<span class="fc" id="L40">			capability = DesiredCapabilities.chrome();</span>
+
+<span class="fc" id="L42">			HashMap&lt;String, Object&gt; chromePrefs = new HashMap&lt;String, Object&gt;();</span>
+<span class="fc" id="L43">			chromePrefs.put(&quot;intl.accept_languages&quot;, &quot;en-US&quot;);</span>
+
+<span class="fc" id="L45">			ChromeOptions options = new ChromeOptions();</span>
+			//options.addArguments(&quot;--lang=en-US&quot;);
+<span class="fc" id="L47">			options.setExperimentalOption(&quot;prefs&quot;, chromePrefs);</span>
+<span class="fc" id="L48">			options.addArguments(&quot;--ignore-certificate-errors&quot;);</span>
+<span class="fc" id="L49">			options.addArguments(&quot;--test-type&quot;);</span>
+<span class="fc" id="L50">			options.addArguments(&quot;--disable-extensions&quot;);</span>
+<span class="fc" id="L51">			options.addArguments(&quot;start-maximized&quot;);</span>
+<span class="fc" id="L52">			options.addArguments(&quot;disable-infobars&quot;);</span>
+<span class="fc" id="L53">			options.addArguments(&quot;--disable-notifications&quot;);</span>
+			//options.addArguments(&quot;enable-automation&quot;);
+<span class="fc" id="L55">			options.addArguments(&quot;--disable-popup-blocking&quot;);</span>
+<span class="fc" id="L56">			options.setExperimentalOption(&quot;useAutomationExtension&quot;, true);</span>
+<span class="fc" id="L57">			options.setExperimentalOption(&quot;excludeSwitches&quot;,Collections.singletonList(&quot;enable-automation&quot;));</span>
+			/*capability.setCapability(ChromeOptions.CAPABILITY, options);
+			capability.setCapability(CapabilityType.TAKES_SCREENSHOT, true);*/
+
+<span class="fc" id="L61">			driver = new ChromeDriver(options);</span>
+<span class="pc bnc" id="L62" title="All 2 branches missed.">		}else if(browserName.equalsIgnoreCase(&quot;FIREFOX&quot;)){</span>
+<span class="nc" id="L63">			WebDriverManager.firefoxdriver().setup();</span>
+<span class="nc" id="L64">			driver = new FirefoxDriver();</span>
+		}
+
+<span class="fc" id="L67">		DriverFactory.setWebDriver(driver);</span>
+<span class="fc" id="L68">		driver.manage().timeouts().pageLoadTimeout(maxPageLoadWait, TimeUnit.SECONDS);</span>
+<span class="fc" id="L69">		driver.manage().window().maximize();</span>
+<span class="fc" id="L70">		driver.manage().deleteAllCookies();</span>
+<span class="fc" id="L71">	}</span>
+
+	public void quitDriver() {
+<span class="fc" id="L74">		driver.close();</span>
+<span class="fc" id="L75">	}</span>
+
+	public static WebDriver getDriver() {
+<span class="fc" id="L78">		return webDriver.get();</span>
+	}
+
+	public static void setWebDriver(WebDriver driver) {
+<span class="fc" id="L82">		webDriver.set(driver);</span>
+<span class="fc" id="L83">	}</span>
+
+	/**
+	 * This method is used take screenshot for failed testcases
+	 * using ITestResult object status for running method.
+	 * Stores screenshots under Screenshots folder with timestamp.
+	 * @param result
+	 * @param driver
+	 */
+	public void screenShot(ITestResult result,WebDriver driver){
+		try{
+<span class="nc" id="L94">			TakesScreenshot screenshot=(TakesScreenshot)driver;</span>
+<span class="nc" id="L95">			File src=screenshot.getScreenshotAs(OutputType.FILE);</span>
+			
+<span class="nc" id="L97">			SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy.MM.dd.HH.mm.ss&quot;);</span>
+<span class="nc" id="L98">			Timestamp ts = new Timestamp(System.currentTimeMillis());</span>
+<span class="nc" id="L99">			String timestamp = sdf.format(ts).toString();</span>
+			
+<span class="nc" id="L101">			FileUtils.copyFile(src, new File(System.getProperty(&quot;user.dir&quot;)+&quot;\\&quot;+&quot;Screenshots&quot;+&quot;\\&quot;+result.getName()+&quot;_&quot;+timestamp+&quot;.jpg&quot;));</span>
+<span class="nc" id="L102">			System.out.println(&quot;Successfully captured a screenshot&quot;);</span>
+<span class="nc" id="L103">		}catch (Exception e){</span>
+<span class="nc" id="L104">			System.out.println(&quot;Exception while taking screenshot &quot;+e.getMessage());</span>
+<span class="nc" id="L105">		} </span>
+
+<span class="nc" id="L107">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="12" passed="12">
+  <reporter-output>
+  </reporter-output>
+  <suite name="BookingTests" duration-ms="441988" started-at="2020-03-16T20:00:59Z" finished-at="2020-03-16T20:08:21Z">
+    <groups>
+      <group name="negative">
+        <method signature="NegativeScenario.Negative_InvalidHSNTSN()[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="Negative_InvalidHSNTSN" class="org.com.friday.carlookup.scripts.NegativeScenario"/>
+        <method signature="NegativeScenario.Negative_InvalidRegDate()[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="Negative_InvalidRegDate" class="org.com.friday.carlookup.scripts.NegativeScenario"/>
+        <method signature="NegativeScenario.Negative_Under18DOB(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="Negative_Under18DOB" class="org.com.friday.carlookup.scripts.NegativeScenario"/>
+      </group> <!-- negative -->
+      <group name="positive">
+        <method signature="PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" class="org.com.friday.carlookup.scripts.PositiveScenario"/>
+      </group> <!-- positive -->
+    </groups>
+    <test name="TestngTests" duration-ms="441988" started-at="2020-03-16T20:00:59Z" finished-at="2020-03-16T20:08:21Z">
+      <class name="org.com.friday.carlookup.scripts.PositiveScenario">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9571" started-at="2020-03-17T01:32:31Z" finished-at="2020-03-17T01:32:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="17971" started-at="2020-03-17T01:32:41Z" data-provider="data-provider" finished-at="2020-03-17T01:32:59Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Audi]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Q5]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Benzin]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[132 kW / 179 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Q5 2.0 TFSI QUATTRO]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 0588, TSN: ALG]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[02]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2018]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Y|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4115" started-at="2020-03-17T01:32:59Z" finished-at="2020-03-17T01:33:03Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9806" started-at="2020-03-17T01:33:03Z" finished-at="2020-03-17T01:33:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="17046" started-at="2020-03-17T01:33:13Z" data-provider="data-provider" finished-at="2020-03-17T01:33:30Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Audi]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Coupe]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[82 kW / 111 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[AUDI 80/90 COUPE]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 0588, TSN: 489]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[03]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2018]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Y|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4110" started-at="2020-03-17T01:33:30Z" finished-at="2020-03-17T01:33:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9694" started-at="2020-03-17T01:33:34Z" finished-at="2020-03-17T01:33:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="17905" started-at="2020-03-17T01:33:44Z" data-provider="data-provider" finished-at="2020-03-17T01:34:02Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Audi]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Allroad Quattro]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Diesel]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[210 kW / 286 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[A6 AVANT / ALLROAD 50 TDI QUATTRO]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 0588, TSN: BNH]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[05]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[N|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4115" started-at="2020-03-17T01:34:02Z" finished-at="2020-03-17T01:34:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9755" started-at="2020-03-17T01:34:06Z" finished-at="2020-03-17T01:34:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="18263" started-at="2020-03-17T01:34:15Z" data-provider="data-provider" finished-at="2020-03-17T01:34:34Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[BMW]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[1er]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Limousine]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Benzin]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[90 kW / 122 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[116I]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 0005, TSN: ARE]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[05]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[N|N|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4114" started-at="2020-03-17T01:34:34Z" finished-at="2020-03-17T01:34:38Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9767" started-at="2020-03-17T01:34:38Z" finished-at="2020-03-17T01:34:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="81722" started-at="2020-03-17T01:34:48Z" data-provider="data-provider" finished-at="2020-03-17T01:36:09Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[BMW]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[X1]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Diesel]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[105 kW / 143 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[X1 XDRIVE 18D]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 0005, TSN: AQA]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[05]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Y|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4116" started-at="2020-03-17T01:36:09Z" finished-at="2020-03-17T01:36:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9552" started-at="2020-03-17T01:36:13Z" finished-at="2020-03-17T01:36:23Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="17580" started-at="2020-03-17T01:36:23Z" data-provider="data-provider" finished-at="2020-03-17T01:36:41Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[BMW]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[X6]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Hybrid]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[X6 HYBRID]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 0005, TSN: AQC]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[07]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Y|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4094" started-at="2020-03-17T01:36:41Z" finished-at="2020-03-17T01:36:45Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9879" started-at="2020-03-17T01:36:45Z" finished-at="2020-03-17T01:36:55Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="18042" started-at="2020-03-17T01:36:55Z" data-provider="data-provider" finished-at="2020-03-17T01:37:13Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[FORD]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Focus]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Kombi]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Gas]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[107 kW / 145 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[FOCUS TURNIER 2.0]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 8566, TSN: ABB]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[06]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2018]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[N|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4124" started-at="2020-03-17T01:37:13Z" finished-at="2020-03-17T01:37:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9476" started-at="2020-03-17T01:37:17Z" finished-at="2020-03-17T01:37:26Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="17308" started-at="2020-03-17T01:37:26Z" data-provider="data-provider" finished-at="2020-03-17T01:37:44Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[FORD]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Mustang]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[310 kW / 421 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[MUSTANG 5.0 GT]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 1028, TSN: AAB]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[03]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2018]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[N|N|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4111" started-at="2020-03-17T01:37:44Z" finished-at="2020-03-17T01:37:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="setup" is-config="true" duration-ms="9714" started-at="2020-03-17T01:37:48Z" finished-at="2020-03-17T01:37:57Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="CarLookupPositive" duration-ms="19940" started-at="2020-03-17T01:37:57Z" data-provider="data-provider" finished-at="2020-03-17T01:38:17Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[CarLookupPositive]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[FORD]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Transit]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[Kasten]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Benzin]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[107 kW / 145 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[TRANSIT KOMBI/VAN 2.3]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 8566, TSN: 430]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[05]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2019]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Y|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- CarLookupPositive -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48]" name="tearDown" is-config="true" duration-ms="4111" started-at="2020-03-17T01:38:17Z" finished-at="2020-03-17T01:38:21Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=CarLookupPositive status=SUCCESS method=PositiveScenario.CarLookupPositive(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.PositiveScenario@59942b48] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.com.friday.carlookup.scripts.PositiveScenario -->
+      <class name="org.com.friday.carlookup.scripts.NegativeScenario">
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="setup" is-config="true" duration-ms="15342" started-at="2020-03-17T01:30:59Z" finished-at="2020-03-17T01:31:15Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="Negative_InvalidHSNTSN()[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="Negative_InvalidHSNTSN" duration-ms="20994" started-at="2020-03-17T01:31:15Z" finished-at="2020-03-17T01:31:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Negative_InvalidHSNTSN -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="tearDown" is-config="true" duration-ms="4417" started-at="2020-03-17T01:31:36Z" finished-at="2020-03-17T01:31:40Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Negative_InvalidHSNTSN status=SUCCESS method=NegativeScenario.Negative_InvalidHSNTSN()[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="setup" is-config="true" duration-ms="9630" started-at="2020-03-17T01:31:40Z" finished-at="2020-03-17T01:31:50Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="Negative_InvalidRegDate()[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="Negative_InvalidRegDate" duration-ms="10481" started-at="2020-03-17T01:31:50Z" finished-at="2020-03-17T01:32:00Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Negative_InvalidRegDate -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="tearDown" is-config="true" duration-ms="317" started-at="2020-03-17T01:32:00Z" finished-at="2020-03-17T01:32:01Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Negative_InvalidRegDate status=SUCCESS method=NegativeScenario.Negative_InvalidRegDate()[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setup(java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="setup" is-config="true" duration-ms="9914" started-at="2020-03-17T01:32:02Z" finished-at="2020-03-17T01:32:12Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[chrome]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="Negative_Under18DOB(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="Negative_Under18DOB" duration-ms="19013" started-at="2020-03-17T01:32:12Z" data-provider="data-provider" finished-at="2020-03-17T01:32:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[Negative_Under18DOB]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[Audi]]>
+              </value>
+            </param>
+            <param index="2">
+              <value>
+                <![CDATA[Q5]]>
+              </value>
+            </param>
+            <param index="3">
+              <value>
+                <![CDATA[NA]]>
+              </value>
+            </param>
+            <param index="4">
+              <value>
+                <![CDATA[Benzin]]>
+              </value>
+            </param>
+            <param index="5">
+              <value>
+                <![CDATA[132 kW / 179 PS]]>
+              </value>
+            </param>
+            <param index="6">
+              <value>
+                <![CDATA[Q5 2.0 TFSI QUATTRO]]>
+              </value>
+            </param>
+            <param index="7">
+              <value>
+                <![CDATA[HSN: 0588, TSN: ALG]]>
+              </value>
+            </param>
+            <param index="8">
+              <value>
+                <![CDATA[02]]>
+              </value>
+            </param>
+            <param index="9">
+              <value>
+                <![CDATA[2018]]>
+              </value>
+            </param>
+            <param index="10">
+              <value>
+                <![CDATA[Y|Y|N]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Negative_Under18DOB -->
+        <test-method status="PASS" signature="tearDown(org.testng.ITestResult)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1]" name="tearDown" is-config="true" duration-ms="151" started-at="2020-03-17T01:32:31Z" finished-at="2020-03-17T01:32:31Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[[TestResult name=Negative_Under18DOB status=SUCCESS method=NegativeScenario.Negative_Under18DOB(java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String, java.lang.String)[pri:0, instance:org.com.friday.carlookup.scripts.NegativeScenario@47b2e9e1] output={null}]]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- org.com.friday.carlookup.scripts.NegativeScenario -->
+    </test> <!-- TestngTests -->
+  </suite> <!-- BookingTests -->
+</testng-results>

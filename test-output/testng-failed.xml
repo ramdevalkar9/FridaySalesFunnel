@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [BookingTests]">
+  <parameter name="browserName" value="firefox"/>
+  <test name="TestngTests(failed)">
+    <groups>
+      <run>
+        <include name="functest2"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="org.com.friday.carlookup.scripts.PositiveScenario">
+        <methods>
+          <include name="tearDown"/>
+          <include name="setup"/>
+          <include name="CarLookupPositive" invocation-numbers="0"/>
+        </methods>
+      </class> <!-- org.com.friday.carlookup.scripts.PositiveScenario -->
+    </classes>
+  </test> <!-- TestngTests(failed) -->
+</suite> <!-- Failed suite [BookingTests] -->

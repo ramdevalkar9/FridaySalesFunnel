@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CarInsuranceHelper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">carlookup</a> &gt; <a href="index.source.html" class="el_package">org.com.friday.carlookup.helper</a> &gt; <span class="el_source">CarInsuranceHelper.java</span></div><h1>CarInsuranceHelper.java</h1><pre class="source lang-java linenums">package org.com.friday.carlookup.helper;
+
+import org.com.friday.carlookup.utils.WebDriverWrapper;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
+public class CarInsuranceHelper {
+	
+<span class="fc" id="L13">	private int timeOutPeriod = 30;</span>
+	private WebDriver driver;
+	private WebDriverWrapper wrapper;
+	
+	@FindBy(id = &quot;uc-btn-accept-banner&quot;)
+	WebElement txtPickup;
+	
+	@FindBy(xpath = &quot;//button[@value='keepingCar']&quot;)
+	WebElement rdbtnKeepCar;
+	
+	@FindBy(xpath = &quot;//button[@value='buyingCar']&quot;)
+	WebElement rdbtnBuyCar;
+	
+	@FindBy(name = &quot;inceptionDate&quot;)
+	WebElement txtDate;
+	
+	@FindBy(xpath = &quot;//input[@name='inceptionDate']/../following-sibling::div/span&quot;)
+	WebElement lblErrorDateMsg;
+	
+	
+	@FindBy(xpath = &quot;//button[@type='submit']&quot;)
+	WebElement btnSubmit;
+	
+	@FindBy(xpath = &quot;//span[contains(text(),'Weiter')]&quot;)
+	WebElement btnSubmit2;
+	
+	
+	@FindBy(xpath = &quot;(//*[@name='registeredOwner'])[1]&quot;)
+	WebElement btnIsRegsitered;
+	
+	@FindBy(xpath = &quot;(//*[@name='registeredOwner'])[2]&quot;)
+	WebElement btnIsNotRegsitered;
+	
+	@FindBy(xpath = &quot;//*[@name='newOrUsed' and @value='used']&quot;)
+	WebElement btnUsed;
+	
+	@FindBy(xpath = &quot;//*[@name='newOrUsed' and @value='brandNew']&quot;)
+	WebElement btnNew;
+	
+	//to identify page
+	@FindBy(xpath = &quot;//button[@name='list']&quot;)
+	WebElement lnkVehicle;
+	
+	@FindBy(name = &quot;makeFilter&quot;)
+	WebElement txtEnterMake;
+	
+	@FindBy(xpath = &quot;(//button[@name='make'])[1]&quot;)
+	WebElement selectMake;
+	
+	@FindBy(name = &quot;modelFilter&quot;)
+	WebElement txtEnterModel;
+	
+	@FindBy(xpath = &quot;(//button[@name='model'])[1]&quot;)
+	WebElement selectModel;
+	
+	@FindBy(name = &quot;bodyType&quot;)
+	WebElement lstBodyType;
+	
+	@FindBy(name = &quot;fuelType&quot;)
+	WebElement lstFuelType;
+	
+	@FindBy(name = &quot;enginePower&quot;)
+	WebElement lstEnginePower;
+	
+	@FindBy(name = &quot;engine&quot;)
+	WebElement lstEngine;
+	
+	@FindBy(name = &quot;monthYearFirstRegistered&quot;)
+	WebElement txtRegDate;
+	
+	@FindBy(name = &quot;monthYearOwnerRegistered&quot;)
+	WebElement txtOwnerDate;
+		
+	@FindBy(name = &quot;birthDate&quot;)
+	WebElement txtDOB;
+	
+	@FindBy(xpath = &quot;//div[@data-test-id='wizardTitle']&quot;)
+	WebElement lblDOB;
+	
+	@FindBy(name = &quot;hsnTsn&quot;)
+	WebElement btnHsn;
+	
+	@FindBy(name = &quot;monthYear&quot;)
+	WebElement txthsnDate;
+	
+	@FindBy(name = &quot;hsn&quot;)
+	WebElement txtHsn;
+	
+	@FindBy(name = &quot;tsn&quot;)
+	WebElement txtTsn;
+	
+	@FindBy(xpath = &quot;//span[contains(text(),'Wir konnten kein passendes Fahrzeug ermitteln')]&quot;)
+	WebElement lblHsnErrorMsg;
+	
+	@FindBy(xpath = &quot;//span[contains(text(),'18 Jahre sind')]&quot;)
+	WebElement lblDOBErrorMsg;
+	
+	/**
+	 * Helper class constructor takes driver object to set this.driver
+	 * instantiates wrapper object which has utility methods
+	 * and initializes page objects using initElements static method
+	 * @param driver
+	 */
+<span class="fc" id="L116">	public CarInsuranceHelper(WebDriver driver) {</span>
+<span class="fc" id="L117">		this.driver = driver;</span>
+<span class="fc" id="L118">		wrapper = new WebDriverWrapper();</span>
+<span class="fc" id="L119">		PageFactory.initElements(driver, this);</span>
+<span class="fc" id="L120">	}</span>
+	
+	/**
+	 * This method identifies if cookie banner is visible
+	 * during initial load of website and clicks on accept cookies.
+	 * @return null 
+	 */
+	public void clickOnLandingbanner() {
+<span class="fc" id="L128">		wrapper.waitAndClick(driver, txtPickup, timeOutPeriod);</span>
+<span class="fc" id="L129">	}</span>
+	
+	/**
+	 * This method asks if car is already insured or re-registerd
+	 * and selects the option accordingly
+	 * @param isInsured
+	 * @return null
+	 */
+	public void selectPreCondition(String isInsured) {
+		
+<span class="fc bfc" id="L139" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isInsured)) {</span>
+<span class="fc" id="L140">			wrapper.waitAndClick(driver, rdbtnKeepCar, timeOutPeriod);</span>
+		}else {
+<span class="fc" id="L142">			wrapper.waitAndClick(driver, rdbtnBuyCar, timeOutPeriod);</span>
+		}
+		
+<span class="fc" id="L145">		String currentDate = wrapper.getCurrentDate();</span>
+<span class="fc" id="L146">		wrapper.waitAndSendKeys(driver, txtDate, timeOutPeriod, currentDate);</span>
+<span class="fc" id="L147">		clickOnSubmit(btnIsRegsitered);</span>
+<span class="fc" id="L148">	}</span>
+	
+	
+	/**
+	 * This method checks if customer is owner and car status
+	 * and selects the options based on parameters
+	 * @param isOwner
+	 * @param isNew
+	 * @return null
+	 */
+	public void selectRegisteredOwner(String isOwner,String isNew) {
+<span class="fc bfc" id="L159" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isOwner)) {</span>
+<span class="fc" id="L160">			wrapper.waitAndClick(driver, btnIsRegsitered, timeOutPeriod);</span>
+<span class="pc bpc" id="L161" title="1 of 2 branches missed.">		}else if(&quot;N&quot;.equalsIgnoreCase(isOwner)){</span>
+<span class="fc" id="L162">			wrapper.waitAndClick(driver, btnIsNotRegsitered, timeOutPeriod);</span>
+		}else {
+<span class="nc" id="L164">			Assert.fail(&quot;Owner details not found. Valid values are 'Y' or 'N'&quot;);</span>
+		}
+		
+<span class="fc bfc" id="L167" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isNew)) {</span>
+<span class="fc" id="L168">			wrapper.waitAndClick(driver, btnUsed, timeOutPeriod);</span>
+<span class="pc bpc" id="L169" title="1 of 2 branches missed.">		}else if(&quot;N&quot;.equalsIgnoreCase(isNew)){</span>
+<span class="fc" id="L170">			wrapper.waitAndClick(driver, btnNew, timeOutPeriod);</span>
+		}else {
+<span class="nc" id="L172">			Assert.fail(&quot;Car details not found. Valid values are 'Y' or 'N'&quot;);</span>
+		}
+<span class="fc" id="L174">		clickOnSubmit(lnkVehicle);</span>
+<span class="fc" id="L175">	}</span>
+	
+	/**
+	 * This method reads all the parameters passed from 'inputDataSheet.xlsx'
+	 * using dataprovider annotation, selects details accordingly
+	 * and returns label text on 'DOB' entry page.(Wann wurdest du geboren?)
+	 * Presence of which marks end of test.
+	 * @param make
+	 * @param model
+	 * @param bodyType
+	 * @param fuelType
+	 * @param enginePower
+	 * @param hsn
+	 * @param regDate
+	 * @return DOB_label_text
+	 */
+	public String selectVehicle(String make,String model,String bodyType,String fuelType,String enginePower,String hsn,String regDate) {
+<span class="fc" id="L192">		wrapper.waitAndSendKeys(driver, txtEnterMake, timeOutPeriod, make);</span>
+<span class="fc" id="L193">		wrapper.waitForElementTobeDisplayed(driver, selectMake, timeOutPeriod);</span>
+<span class="pc bpc" id="L194" title="1 of 2 branches missed.">		if(selectMake.getText().trim().equalsIgnoreCase(make)) {</span>
+<span class="fc" id="L195">			wrapper.waitAndClick(driver, selectMake, timeOutPeriod);</span>
+		}else {
+<span class="nc" id="L197">			Assert.fail(make+&quot; not found int Make List&quot;);</span>
+		}
+		
+<span class="fc" id="L200">		wrapper.waitForElementTobeDisplayed(driver, txtEnterModel, timeOutPeriod);</span>
+<span class="fc" id="L201">		txtEnterModel.sendKeys(model);</span>
+		
+<span class="fc" id="L203">		driver.findElement(By.xpath(&quot;//button[@name='model']//label[text()='&quot;+model+&quot;']&quot;)).click();</span>
+		
+<span class="fc bfc" id="L205" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(bodyType))) {</span>
+<span class="fc" id="L206">			wrapper.waitForElementTobeDisplayed(driver, lstBodyType, timeOutPeriod);</span>
+<span class="fc" id="L207">			driver.findElement(By.xpath(&quot;//*[@name='bodyType']//label[text()='&quot;+bodyType+&quot;']&quot;)).click();</span>
+		}
+		
+<span class="fc bfc" id="L210" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(fuelType))) {</span>
+<span class="fc" id="L211">			wrapper.waitForElementTobeDisplayed(driver, lstFuelType, timeOutPeriod);</span>
+<span class="fc" id="L212">			driver.findElement(By.xpath(&quot;//*[@name='fuelType']//label[text()='&quot;+fuelType+&quot;']&quot;)).click();</span>
+		}
+		
+<span class="fc bfc" id="L215" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(enginePower))) {</span>
+<span class="fc" id="L216">			wrapper.waitForElementTobeDisplayed(driver, lstEnginePower, timeOutPeriod);</span>
+<span class="fc" id="L217">			driver.findElement(By.xpath(&quot;//*[@name='enginePower']//label[text()='&quot;+enginePower+&quot;']&quot;)).click();</span>
+		}
+<span class="fc" id="L219">		wrapper.waitForElementTobeDisplayed(driver, lstEngine, timeOutPeriod);</span>
+<span class="fc" id="L220">		driver.findElement(By.xpath(&quot;//button[@name='engine']//p[text()='&quot;+hsn+&quot;']&quot;)).click();</span>
+		
+<span class="fc" id="L222">		wrapper.waitForElementTobeDisplayed(driver, txtRegDate, timeOutPeriod);</span>
+<span class="fc" id="L223">		wrapper.waitAndSendKeys(driver, txtRegDate, timeOutPeriod, regDate);</span>
+		
+<span class="pc bpc" id="L225" title="1 of 2 branches missed.">		if(driver.findElements(By.name(&quot;monthYearOwnerRegistered&quot;)).size()&gt; 0) {</span>
+<span class="nc" id="L226">			wrapper.waitAndSendKeys(driver, txtOwnerDate, timeOutPeriod, regDate);</span>
+		}
+		
+<span class="fc" id="L229">		clickOnSubmit(txtDOB);</span>
+		
+<span class="fc" id="L231">		return lblDOB.getText().trim();</span>
+	}
+	
+	/**
+	 * Utility method to click on 'Further' or 'Weiter'
+	 * on every page, wherever required.
+	 * Also takes WebElement of next page as input and checks for the visibility before moving ahead.
+	 * @param WebElement
+	 */
+	private void clickOnSubmit(WebElement element) {
+<span class="fc" id="L241">		wrapper.waitAndClick(driver, btnSubmit2, timeOutPeriod);</span>
+<span class="fc" id="L242">		wrapper.waitForElementTobeDisplayed(driver, element, timeOutPeriod);</span>
+<span class="fc" id="L243">	}</span>
+	
+	/**
+	 * Used to enter registration date for error scenarios
+	 * and gets error message for given input.
+	 * @param date
+	 * @return errorMsg
+	 */
+	public String enterRegistrationDate(String date) {
+<span class="fc" id="L252">		txtDate.clear();</span>
+<span class="fc" id="L253">		txtDate.sendKeys(date);</span>
+<span class="fc" id="L254">		return lblErrorDateMsg.getText().trim();</span>
+	}
+	
+	/**
+	 * This method is used to enter invalid HSN/TSN values
+	 * for negative scenario and fetches the error message.
+	 * @param date
+	 * @param hsn
+	 * @param tsn
+	 * @return errorMsg
+	 */
+	public String enterHSNTSN(String date,String hsn,String tsn) {
+<span class="fc" id="L266">		wrapper.waitAndClick(driver, btnHsn, timeOutPeriod);</span>
+<span class="fc" id="L267">		wrapper.waitForElementTobeDisplayed(driver, txtHsn, timeOutPeriod);</span>
+<span class="fc" id="L268">		wrapper.waitAndSendKeys(driver, txthsnDate, timeOutPeriod, date);</span>
+<span class="fc" id="L269">		wrapper.waitAndSendKeys(driver, txtHsn, timeOutPeriod, hsn);</span>
+<span class="fc" id="L270">		wrapper.waitAndSendKeys(driver, txtTsn, timeOutPeriod, tsn);</span>
+<span class="fc" id="L271">		btnSubmit2.click();</span>
+<span class="fc" id="L272">		wrapper.waitForElementTobeDisplayed(driver, lblHsnErrorMsg, timeOutPeriod);</span>
+<span class="fc" id="L273">		return lblHsnErrorMsg.getText().trim();</span>
+	}
+	
+	/**
+	 * This method is used to fetch error message
+	 * by passing incorrect DOB(under 18) and validates the same.
+	 * @param date
+	 * @return errorMsg
+	 */
+	public String validateAgeCriteria(String date) {
+<span class="fc" id="L283">		wrapper.waitAndSendKeys(driver, txtDOB, timeOutPeriod, date);</span>
+<span class="fc" id="L284">		btnSubmit2.click();</span>
+<span class="fc" id="L285">		wrapper.waitForElementTobeDisplayed(driver, lblDOBErrorMsg, timeOutPeriod);</span>
+		
+<span class="fc" id="L287">		return lblDOBErrorMsg.getText().trim();</span>
+	}
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

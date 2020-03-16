@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>WebDriverWrapper.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">carlookup</a> &gt; <a href="index.source.html" class="el_package">org.com.friday.carlookup.utils</a> &gt; <span class="el_source">WebDriverWrapper.java</span></div><h1>WebDriverWrapper.java</h1><pre class="source lang-java linenums">package org.com.friday.carlookup.utils;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+import org.junit.Assert;
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+<span class="fc" id="L14">public class WebDriverWrapper {</span>
+	
+	/**
+	 * Utility method to check if the element is visible and then click on the same.
+	 * Attempts twice (in catch) before throwing exception
+	 * @param driver
+	 * @param element
+	 * @param timeOutPeriod
+	 */
+	public void waitAndClick(WebDriver driver,WebElement element,int timeOutPeriod) {
+<span class="fc" id="L24">		WebDriverWait wait = new WebDriverWait(driver, timeOutPeriod);</span>
+		try {
+<span class="fc" id="L26">			wait.until(ExpectedConditions.visibilityOf(element));</span>
+<span class="fc" id="L27">			wait.until(ExpectedConditions.elementToBeClickable(element));</span>
+<span class="fc" id="L28">			element.click();</span>
+		}
+<span class="fc" id="L30">	    catch (StaleElementReferenceException sere) {</span>
+	        // simply retry finding the element in the refreshed DOM
+<span class="fc" id="L32">	    	wait.until(ExpectedConditions.visibilityOf(element));</span>
+<span class="fc" id="L33">	    	wait.until(ExpectedConditions.elementToBeClickable(element));</span>
+<span class="fc" id="L34">	    	element.click();</span>
+	    }
+<span class="nc" id="L36">	    catch (Exception toe) {</span>
+<span class="nc" id="L37">	        Assert.fail(&quot;Element identified by &quot; + element.toString() + &quot; was not displayed after 30 seconds&quot;);</span>
+<span class="fc" id="L38">	    }</span>
+<span class="fc" id="L39">	}</span>
+	
+	/**
+	 * Utility method to check if the element is displayed or not on page.
+	 * Attempts twice (in catch) before throwing exception
+	 * @param driver
+	 * @param element
+	 * @param timeOutPeriod
+	 */
+	
+	public void waitForElementTobeDisplayed(WebDriver driver,WebElement element,int timeOutPeriod) {
+<span class="fc" id="L50">		WebDriverWait wait = new WebDriverWait(driver, timeOutPeriod);</span>
+		try {
+<span class="fc" id="L52">			wait.until(ExpectedConditions.visibilityOf(element));</span>
+		}
+<span class="nc" id="L54">	    catch (TimeoutException sere) {</span>
+<span class="nc" id="L55">	    	wait.until(ExpectedConditions.visibilityOf(element));</span>
+	    }
+<span class="nc" id="L57">	    catch (Exception toe) {</span>
+<span class="nc" id="L58">	        Assert.fail(&quot;Element identified by &quot; + element.toString() + &quot; was not displayed after 30 seconds&quot;);</span>
+<span class="pc" id="L59">	    }</span>
+<span class="fc" id="L60">	}</span>
+	
+	/**
+	 * Utility method to check if the element is visible and then clear and enter value.
+	 * Attempts twice (in catch) before throwing exception
+	 * @param driver
+	 * @param element
+	 * @param timeOutPeriod
+	 */
+	public void waitAndSendKeys(WebDriver driver,WebElement element,int timeOutPeriod,String text) {
+<span class="fc" id="L70">		WebDriverWait wait = new WebDriverWait(driver, timeOutPeriod);</span>
+		try {
+<span class="fc" id="L72">			wait.until(ExpectedConditions.visibilityOf(element));</span>
+<span class="fc" id="L73">			element.clear();</span>
+<span class="fc" id="L74">			element.sendKeys(text);</span>
+		}
+<span class="nc" id="L76">	    catch (TimeoutException sere) {</span>
+<span class="nc" id="L77">	    	wait.until(ExpectedConditions.visibilityOf(element));</span>
+<span class="nc" id="L78">	    	element.clear();</span>
+<span class="nc" id="L79">	    	element.sendKeys(text);</span>
+	    }
+<span class="nc" id="L81">	    catch (Exception toe) {</span>
+<span class="nc" id="L82">	        Assert.fail(&quot;Element identified by &quot; + element.toString() + &quot; was not displayed after 30 seconds&quot;);</span>
+<span class="pc" id="L83">	    }</span>
+<span class="fc" id="L84">	}</span>
+	
+	/**
+	 * Returns current date.
+	 * @return currentdate
+	 */
+	public String getCurrentDate() {
+<span class="fc" id="L91">		Date date = new Date();</span>
+<span class="fc" id="L92">		String modifiedDate= new SimpleDateFormat(&quot;ddMMyyyy&quot;).format(date);</span>
+<span class="fc" id="L93">		return modifiedDate;</span>
+	}
+	
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>InputDataProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">carlookup</a> &gt; <a href="index.source.html" class="el_package">org.com.friday.carlookup.utils</a> &gt; <span class="el_source">InputDataProvider.java</span></div><h1>InputDataProvider.java</h1><pre class="source lang-java linenums">package org.com.friday.carlookup.utils;
+
+import java.io.File;
+import java.io.IOException;
+import java.lang.reflect.Method;
+
+import org.testng.annotations.DataProvider;
+
+import com.codoid.products.exception.FilloException;
+import com.codoid.products.fillo.Connection;
+import com.codoid.products.fillo.Fillo;
+import com.codoid.products.fillo.Recordset;
+
+<span class="nc" id="L14">public class InputDataProvider {</span>
+	
+	private static final String PROJECT_LOCATION = &quot;src/test/resources/TestData/&quot;;
+	
+	private static Connection connection;
+	
+	/**
+	 * This method uses fillo class to read input data from 'InputDataSheet.xlsx'
+	 * @return filloconnectionObject
+	 * @throws FilloException
+	 */
+	private static Connection getConnection() throws FilloException {
+		try {
+<span class="fc" id="L27">			Fillo fillo = new Fillo();</span>
+<span class="fc" id="L28">			connection = fillo.getConnection(new File(System.getProperty(&quot;user.dir&quot;)).getAbsolutePath()+&quot;\\&quot;+PROJECT_LOCATION+&quot;\\&quot;+FileUtil.readPropertyFile().getProperty(&quot;inputDataFileName&quot;));</span>
+			
+<span class="nc" id="L30">		} catch (IOException e) {</span>
+<span class="nc" id="L31">			e.printStackTrace();</span>
+<span class="fc" id="L32">		}</span>
+		
+<span class="fc" id="L34">		return connection;</span>
+	}
+	
+	/**
+	 * This method helps in parameterization by reading excel using
+	 * fillo libraries , stores &amp; returns the data in array.
+	 * @param m
+	 * @return array
+	 */
+	    @SuppressWarnings(&quot;deprecation&quot;)
+		@DataProvider(name = &quot;data-provider&quot;,parallel=false)
+		public static  Object[][] getDataFromDataprovider(Method m){
+	    	
+<span class="fc" id="L47">	    	Object[][] testInput=null;</span>
+<span class="fc" id="L48">	    	String scenario= m.getName();</span>
+<span class="fc" id="L49">	    	String strQuery = &quot;Select * from TestData where Scenario = '&quot;+scenario+&quot;'&quot;;</span>
+<span class="fc" id="L50">	    	Recordset rs = null;</span>
+		 	try{
+<span class="fc" id="L52">	    	System.out.println(&quot;Query &quot;+strQuery);</span>
+<span class="fc" id="L53">	    	rs= getConnection().executeQuery(strQuery);</span>
+<span class="fc" id="L54">	    	int row=0;</span>
+	    
+<span class="fc" id="L56">	    	testInput= new Object[rs.getCount()][rs.getFieldNames().size()];</span>
+<span class="fc bfc" id="L57" title="All 2 branches covered.">	    	while (rs.hasNext()) {</span>
+<span class="fc" id="L58">	    		rs.next();</span>
+<span class="fc" id="L59">	    		int col=0;</span>
+	    		
+<span class="fc bfc" id="L61" title="All 2 branches covered.">	    		for(String header : rs.getFieldNames()){</span>
+<span class="fc" id="L62">	    			testInput[row][col]=rs.getField(header);</span>
+<span class="fc" id="L63">	    			col=col+1;</span>
+<span class="fc" id="L64">	    		}</span>
+<span class="fc" id="L65">	    		row=row+1;</span>
+<span class="fc" id="L66">			}</span>
+<span class="nc" id="L67">	    	}catch(Exception e){</span>
+<span class="nc" id="L68">	    		e.printStackTrace();</span>
+	    	}finally {
+<span class="pc" id="L70">	    		rs.close();</span>
+<span class="pc" id="L71">	    		connection.close();</span>
+<span class="pc" id="L72">	    	}</span>
+	        
+<span class="fc" id="L74">	        return testInput;     </span>
+	 
+	    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>
