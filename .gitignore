@@ -1,0 +1,8 @@
+target/*
+target
+test-output
+test-output/*
+Screenshots
+Screenshots/*
+.project
+.classpath
