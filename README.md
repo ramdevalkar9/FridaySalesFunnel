@@ -11,7 +11,7 @@ JaCoCo plugin is used to represent code coverage.
 *Project have been run on windows 10 platform with JDK 1.8. Please ensure JDK 1.8(64 bit) is installed and configure jdk 1.8 if compilation fails.*
 
 ### Project/Test Details & ThoughtProcess:
-Selenium(3.5.3) is used to automate SalesFunnel flow which was expected to be run for 3 Different car brands and each brand with 3 variants, making it 9 scenarios. For which data is stored in excel file as below and fetched using fillo api. Idea behind using fillo as it allows to read data using sql type queries and updating excel becomes simple, if required. Data then passed as inputs to testng test using dataprovider annotation which helps to execute scenario for all 9 inputs.
+Selenium(3.5.3) is used to automate SalesFunnel flow which was expected to be run for 3 Different car brands and each brand with 3 variants, making it 9 scenarios. For which data is stored in excel file as below and fetched using fillo api. Data then passed as inputs to testng test using dataprovider annotation which helps to execute scenario for all 9 inputs.
  
 _Please note: SupportingDetails(Column K) denotes values for below fields._**
  
