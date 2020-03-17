@@ -44,11 +44,11 @@ public class PositiveScenario extends DriverFactory{
 	 * @param SupportingDetails
 	 */
 	@Test(groups = {"positive"},dataProvider="data-provider",dataProviderClass=InputDataProvider.class)
-	public void CarLookupPositive(String Scenario,String Make,String Model,String BodyType,String FuelType,
-			String EnginePower,String Engine,String HSNTSN,String FirstRegistrationMonth,String FirstRegistrationYear,String SupportingDetails) {
+	public void CarLookupPositive(String scenario,String make,String model,String bodyType,String fuelType,
+			String enginePower,String engine,String HSNTSN,String firstRegistrationMonth,String firstRegistrationYear,String supportingDetails) {
 		try {
 			
-			String[] insuranceDetails = SupportingDetails.split("\\|");
+			String[] insuranceDetails = supportingDetails.split("\\|");
 			
 			CarInsuranceHelper carInsuranceHelper= new CarInsuranceHelper(getDriver());
 			getDriver().get(FileUtil.readPropertyFile().getProperty("url"));
@@ -57,7 +57,7 @@ public class PositiveScenario extends DriverFactory{
 			carInsuranceHelper.selectPreCondition(insuranceDetails[0]);
 			carInsuranceHelper.selectRegisteredOwner(insuranceDetails[1], insuranceDetails[2]);
 			
-			String DOBText = carInsuranceHelper.selectVehicle(Make, Model,BodyType, FuelType, EnginePower, HSNTSN, FirstRegistrationMonth+FirstRegistrationYear);
+			String DOBText = carInsuranceHelper.selectVehicle(make, model,bodyType, fuelType, enginePower, HSNTSN, firstRegistrationMonth+firstRegistrationYear);
 			
 			Assert.assertEquals(DOBText, "Wann wurdest du geboren?");
 		} catch (IOException e) {

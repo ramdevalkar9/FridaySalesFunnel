@@ -7,10 +7,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
+import org.testng.Reporter;
 
 public class CarInsuranceHelper {
 	
-<span class="fc" id="L13">	private int timeOutPeriod = 30;</span>
+<span class="fc" id="L14">	private int timeOutPeriod = 30;</span>
 	private WebDriver driver;
 	private WebDriverWrapper wrapper;
 	
@@ -113,11 +114,11 @@ public class CarInsuranceHelper {
 	 * and initializes page objects using initElements static method
 	 * @param driver
 	 */
-<span class="fc" id="L116">	public CarInsuranceHelper(WebDriver driver) {</span>
-<span class="fc" id="L117">		this.driver = driver;</span>
-<span class="fc" id="L118">		wrapper = new WebDriverWrapper();</span>
-<span class="fc" id="L119">		PageFactory.initElements(driver, this);</span>
-<span class="fc" id="L120">	}</span>
+<span class="fc" id="L117">	public CarInsuranceHelper(WebDriver driver) {</span>
+<span class="fc" id="L118">		this.driver = driver;</span>
+<span class="fc" id="L119">		wrapper = new WebDriverWrapper();</span>
+<span class="fc" id="L120">		PageFactory.initElements(driver, this);</span>
+<span class="fc" id="L121">	}</span>
 	
 	/**
 	 * This method identifies if cookie banner is visible
@@ -125,8 +126,9 @@ public class CarInsuranceHelper {
 	 * @return null 
 	 */
 	public void clickOnLandingbanner() {
-<span class="fc" id="L128">		wrapper.waitAndClick(driver, txtPickup, timeOutPeriod);</span>
-<span class="fc" id="L129">	}</span>
+<span class="fc" id="L129">		Reporter.log(&quot;Inside clickOnLandingbanner method&quot;);</span>
+<span class="fc" id="L130">		wrapper.waitAndClick(driver, txtPickup, timeOutPeriod);</span>
+<span class="fc" id="L131">	}</span>
 	
 	/**
 	 * This method asks if car is already insured or re-registerd
@@ -135,17 +137,17 @@ public class CarInsuranceHelper {
 	 * @return null
 	 */
 	public void selectPreCondition(String isInsured) {
-		
-<span class="fc bfc" id="L139" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isInsured)) {</span>
-<span class="fc" id="L140">			wrapper.waitAndClick(driver, rdbtnKeepCar, timeOutPeriod);</span>
+<span class="fc" id="L140">		Reporter.log(&quot;Inside selectPreCondition method&quot;);</span>
+<span class="fc bfc" id="L141" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isInsured)) {</span>
+<span class="fc" id="L142">			wrapper.waitAndClick(driver, rdbtnKeepCar, timeOutPeriod);</span>
 		}else {
-<span class="fc" id="L142">			wrapper.waitAndClick(driver, rdbtnBuyCar, timeOutPeriod);</span>
+<span class="fc" id="L144">			wrapper.waitAndClick(driver, rdbtnBuyCar, timeOutPeriod);</span>
 		}
 		
-<span class="fc" id="L145">		String currentDate = wrapper.getCurrentDate();</span>
-<span class="fc" id="L146">		wrapper.waitAndSendKeys(driver, txtDate, timeOutPeriod, currentDate);</span>
-<span class="fc" id="L147">		clickOnSubmit(btnIsRegsitered);</span>
-<span class="fc" id="L148">	}</span>
+<span class="fc" id="L147">		String currentDate = wrapper.getCurrentDate();</span>
+<span class="fc" id="L148">		wrapper.waitAndSendKeys(driver, txtDate, timeOutPeriod, currentDate);</span>
+<span class="fc" id="L149">		clickOnSubmit(btnIsRegsitered);</span>
+<span class="fc" id="L150">	}</span>
 	
 	
 	/**
@@ -156,23 +158,25 @@ public class CarInsuranceHelper {
 	 * @return null
 	 */
 	public void selectRegisteredOwner(String isOwner,String isNew) {
-<span class="fc bfc" id="L159" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isOwner)) {</span>
-<span class="fc" id="L160">			wrapper.waitAndClick(driver, btnIsRegsitered, timeOutPeriod);</span>
-<span class="pc bpc" id="L161" title="1 of 2 branches missed.">		}else if(&quot;N&quot;.equalsIgnoreCase(isOwner)){</span>
-<span class="fc" id="L162">			wrapper.waitAndClick(driver, btnIsNotRegsitered, timeOutPeriod);</span>
+<span class="fc" id="L161">		Reporter.log(&quot;Inside selectRegisteredOwner method&quot;);</span>
+		
+<span class="fc bfc" id="L163" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isOwner)) {</span>
+<span class="fc" id="L164">			wrapper.waitAndClick(driver, btnIsRegsitered, timeOutPeriod);</span>
+<span class="pc bpc" id="L165" title="1 of 2 branches missed.">		}else if(&quot;N&quot;.equalsIgnoreCase(isOwner)){</span>
+<span class="fc" id="L166">			wrapper.waitAndClick(driver, btnIsNotRegsitered, timeOutPeriod);</span>
 		}else {
-<span class="nc" id="L164">			Assert.fail(&quot;Owner details not found. Valid values are 'Y' or 'N'&quot;);</span>
+<span class="nc" id="L168">			Assert.fail(&quot;Owner details not found. Valid values are 'Y' or 'N'&quot;);</span>
 		}
 		
-<span class="fc bfc" id="L167" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isNew)) {</span>
-<span class="fc" id="L168">			wrapper.waitAndClick(driver, btnUsed, timeOutPeriod);</span>
-<span class="pc bpc" id="L169" title="1 of 2 branches missed.">		}else if(&quot;N&quot;.equalsIgnoreCase(isNew)){</span>
-<span class="fc" id="L170">			wrapper.waitAndClick(driver, btnNew, timeOutPeriod);</span>
+<span class="fc bfc" id="L171" title="All 2 branches covered.">		if(&quot;Y&quot;.equalsIgnoreCase(isNew)) {</span>
+<span class="fc" id="L172">			wrapper.waitAndClick(driver, btnUsed, timeOutPeriod);</span>
+<span class="pc bpc" id="L173" title="1 of 2 branches missed.">		}else if(&quot;N&quot;.equalsIgnoreCase(isNew)){</span>
+<span class="fc" id="L174">			wrapper.waitAndClick(driver, btnNew, timeOutPeriod);</span>
 		}else {
-<span class="nc" id="L172">			Assert.fail(&quot;Car details not found. Valid values are 'Y' or 'N'&quot;);</span>
+<span class="nc" id="L176">			Assert.fail(&quot;Car details not found. Valid values are 'Y' or 'N'&quot;);</span>
 		}
-<span class="fc" id="L174">		clickOnSubmit(lnkVehicle);</span>
-<span class="fc" id="L175">	}</span>
+<span class="fc" id="L178">		clickOnSubmit(lnkVehicle);</span>
+<span class="fc" id="L179">	}</span>
 	
 	/**
 	 * This method reads all the parameters passed from 'inputDataSheet.xlsx'
@@ -189,46 +193,47 @@ public class CarInsuranceHelper {
 	 * @return DOB_label_text
 	 */
 	public String selectVehicle(String make,String model,String bodyType,String fuelType,String enginePower,String hsn,String regDate) {
-<span class="fc" id="L192">		wrapper.waitAndSendKeys(driver, txtEnterMake, timeOutPeriod, make);</span>
-<span class="fc" id="L193">		wrapper.waitForElementTobeDisplayed(driver, selectMake, timeOutPeriod);</span>
-<span class="pc bpc" id="L194" title="1 of 2 branches missed.">		if(selectMake.getText().trim().equalsIgnoreCase(make)) {</span>
-<span class="fc" id="L195">			wrapper.waitAndClick(driver, selectMake, timeOutPeriod);</span>
+<span class="fc" id="L196">		Reporter.log(&quot;Inside selectVehicle method&quot;);</span>
+<span class="fc" id="L197">		wrapper.waitAndSendKeys(driver, txtEnterMake, timeOutPeriod, make);</span>
+<span class="fc" id="L198">		wrapper.waitForElementTobeDisplayed(driver, selectMake, timeOutPeriod);</span>
+<span class="pc bpc" id="L199" title="1 of 2 branches missed.">		if(selectMake.getText().trim().equalsIgnoreCase(make)) {</span>
+<span class="fc" id="L200">			wrapper.waitAndClick(driver, selectMake, timeOutPeriod);</span>
 		}else {
-<span class="nc" id="L197">			Assert.fail(make+&quot; not found int Make List&quot;);</span>
+<span class="nc" id="L202">			Assert.fail(make+&quot; not found int Make List&quot;);</span>
 		}
 		
-<span class="fc" id="L200">		wrapper.waitForElementTobeDisplayed(driver, txtEnterModel, timeOutPeriod);</span>
-<span class="fc" id="L201">		txtEnterModel.sendKeys(model);</span>
+<span class="fc" id="L205">		wrapper.waitForElementTobeDisplayed(driver, txtEnterModel, timeOutPeriod);</span>
+<span class="fc" id="L206">		txtEnterModel.sendKeys(model);</span>
 		
-<span class="fc" id="L203">		driver.findElement(By.xpath(&quot;//button[@name='model']//label[text()='&quot;+model+&quot;']&quot;)).click();</span>
+<span class="fc" id="L208">		driver.findElement(By.xpath(&quot;//button[@name='model']//label[text()='&quot;+model+&quot;']&quot;)).click();</span>
 		
-<span class="fc bfc" id="L205" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(bodyType))) {</span>
-<span class="fc" id="L206">			wrapper.waitForElementTobeDisplayed(driver, lstBodyType, timeOutPeriod);</span>
-<span class="fc" id="L207">			driver.findElement(By.xpath(&quot;//*[@name='bodyType']//label[text()='&quot;+bodyType+&quot;']&quot;)).click();</span>
+<span class="fc bfc" id="L210" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(bodyType))) {</span>
+<span class="fc" id="L211">			wrapper.waitForElementTobeDisplayed(driver, lstBodyType, timeOutPeriod);</span>
+<span class="fc" id="L212">			driver.findElement(By.xpath(&quot;//*[@name='bodyType']//label[text()='&quot;+bodyType+&quot;']&quot;)).click();</span>
 		}
 		
-<span class="fc bfc" id="L210" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(fuelType))) {</span>
-<span class="fc" id="L211">			wrapper.waitForElementTobeDisplayed(driver, lstFuelType, timeOutPeriod);</span>
-<span class="fc" id="L212">			driver.findElement(By.xpath(&quot;//*[@name='fuelType']//label[text()='&quot;+fuelType+&quot;']&quot;)).click();</span>
+<span class="fc bfc" id="L215" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(fuelType))) {</span>
+<span class="fc" id="L216">			wrapper.waitForElementTobeDisplayed(driver, lstFuelType, timeOutPeriod);</span>
+<span class="fc" id="L217">			driver.findElement(By.xpath(&quot;//*[@name='fuelType']//label[text()='&quot;+fuelType+&quot;']&quot;)).click();</span>
 		}
 		
-<span class="fc bfc" id="L215" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(enginePower))) {</span>
-<span class="fc" id="L216">			wrapper.waitForElementTobeDisplayed(driver, lstEnginePower, timeOutPeriod);</span>
-<span class="fc" id="L217">			driver.findElement(By.xpath(&quot;//*[@name='enginePower']//label[text()='&quot;+enginePower+&quot;']&quot;)).click();</span>
+<span class="fc bfc" id="L220" title="All 2 branches covered.">		if(!(&quot;NA&quot;.equalsIgnoreCase(enginePower))) {</span>
+<span class="fc" id="L221">			wrapper.waitForElementTobeDisplayed(driver, lstEnginePower, timeOutPeriod);</span>
+<span class="fc" id="L222">			driver.findElement(By.xpath(&quot;//*[@name='enginePower']//label[text()='&quot;+enginePower+&quot;']&quot;)).click();</span>
 		}
-<span class="fc" id="L219">		wrapper.waitForElementTobeDisplayed(driver, lstEngine, timeOutPeriod);</span>
-<span class="fc" id="L220">		driver.findElement(By.xpath(&quot;//button[@name='engine']//p[text()='&quot;+hsn+&quot;']&quot;)).click();</span>
+<span class="fc" id="L224">		wrapper.waitForElementTobeDisplayed(driver, lstEngine, timeOutPeriod);</span>
+<span class="fc" id="L225">		driver.findElement(By.xpath(&quot;//button[@name='engine']//p[text()='&quot;+hsn+&quot;']&quot;)).click();</span>
 		
-<span class="fc" id="L222">		wrapper.waitForElementTobeDisplayed(driver, txtRegDate, timeOutPeriod);</span>
-<span class="fc" id="L223">		wrapper.waitAndSendKeys(driver, txtRegDate, timeOutPeriod, regDate);</span>
+<span class="fc" id="L227">		wrapper.waitForElementTobeDisplayed(driver, txtRegDate, timeOutPeriod);</span>
+<span class="fc" id="L228">		wrapper.waitAndSendKeys(driver, txtRegDate, timeOutPeriod, regDate);</span>
 		
-<span class="pc bpc" id="L225" title="1 of 2 branches missed.">		if(driver.findElements(By.name(&quot;monthYearOwnerRegistered&quot;)).size()&gt; 0) {</span>
-<span class="nc" id="L226">			wrapper.waitAndSendKeys(driver, txtOwnerDate, timeOutPeriod, regDate);</span>
+<span class="pc bpc" id="L230" title="1 of 2 branches missed.">		if(driver.findElements(By.name(&quot;monthYearOwnerRegistered&quot;)).size()&gt; 0) {</span>
+<span class="nc" id="L231">			wrapper.waitAndSendKeys(driver, txtOwnerDate, timeOutPeriod, regDate);</span>
 		}
 		
-<span class="fc" id="L229">		clickOnSubmit(txtDOB);</span>
+<span class="fc" id="L234">		clickOnSubmit(txtDOB);</span>
 		
-<span class="fc" id="L231">		return lblDOB.getText().trim();</span>
+<span class="fc" id="L236">		return lblDOB.getText().trim();</span>
 	}
 	
 	/**
@@ -238,9 +243,10 @@ public class CarInsuranceHelper {
 	 * @param WebElement
 	 */
 	private void clickOnSubmit(WebElement element) {
-<span class="fc" id="L241">		wrapper.waitAndClick(driver, btnSubmit2, timeOutPeriod);</span>
-<span class="fc" id="L242">		wrapper.waitForElementTobeDisplayed(driver, element, timeOutPeriod);</span>
-<span class="fc" id="L243">	}</span>
+<span class="fc" id="L246">		Reporter.log(&quot;Inside clickOnSubmit method&quot;);</span>
+<span class="fc" id="L247">		wrapper.waitAndClick(driver, btnSubmit2, timeOutPeriod);</span>
+<span class="fc" id="L248">		wrapper.waitForElementTobeDisplayed(driver, element, timeOutPeriod);</span>
+<span class="fc" id="L249">	}</span>
 	
 	/**
 	 * Used to enter registration date for error scenarios
@@ -249,9 +255,10 @@ public class CarInsuranceHelper {
 	 * @return errorMsg
 	 */
 	public String enterRegistrationDate(String date) {
-<span class="fc" id="L252">		txtDate.clear();</span>
-<span class="fc" id="L253">		txtDate.sendKeys(date);</span>
-<span class="fc" id="L254">		return lblErrorDateMsg.getText().trim();</span>
+<span class="fc" id="L258">		Reporter.log(&quot;Inside enterRegistrationDate method&quot;);</span>
+<span class="fc" id="L259">		txtDate.clear();</span>
+<span class="fc" id="L260">		txtDate.sendKeys(date);</span>
+<span class="fc" id="L261">		return lblErrorDateMsg.getText().trim();</span>
 	}
 	
 	/**
@@ -263,14 +270,15 @@ public class CarInsuranceHelper {
 	 * @return errorMsg
 	 */
 	public String enterHSNTSN(String date,String hsn,String tsn) {
-<span class="fc" id="L266">		wrapper.waitAndClick(driver, btnHsn, timeOutPeriod);</span>
-<span class="fc" id="L267">		wrapper.waitForElementTobeDisplayed(driver, txtHsn, timeOutPeriod);</span>
-<span class="fc" id="L268">		wrapper.waitAndSendKeys(driver, txthsnDate, timeOutPeriod, date);</span>
-<span class="fc" id="L269">		wrapper.waitAndSendKeys(driver, txtHsn, timeOutPeriod, hsn);</span>
-<span class="fc" id="L270">		wrapper.waitAndSendKeys(driver, txtTsn, timeOutPeriod, tsn);</span>
-<span class="fc" id="L271">		btnSubmit2.click();</span>
-<span class="fc" id="L272">		wrapper.waitForElementTobeDisplayed(driver, lblHsnErrorMsg, timeOutPeriod);</span>
-<span class="fc" id="L273">		return lblHsnErrorMsg.getText().trim();</span>
+<span class="fc" id="L273">		Reporter.log(&quot;Inside enterHSNTSN method&quot;);</span>
+<span class="fc" id="L274">		wrapper.waitAndClick(driver, btnHsn, timeOutPeriod);</span>
+<span class="fc" id="L275">		wrapper.waitForElementTobeDisplayed(driver, txtHsn, timeOutPeriod);</span>
+<span class="fc" id="L276">		wrapper.waitAndSendKeys(driver, txthsnDate, timeOutPeriod, date);</span>
+<span class="fc" id="L277">		wrapper.waitAndSendKeys(driver, txtHsn, timeOutPeriod, hsn);</span>
+<span class="fc" id="L278">		wrapper.waitAndSendKeys(driver, txtTsn, timeOutPeriod, tsn);</span>
+<span class="fc" id="L279">		btnSubmit2.click();</span>
+<span class="fc" id="L280">		wrapper.waitForElementTobeDisplayed(driver, lblHsnErrorMsg, timeOutPeriod);</span>
+<span class="fc" id="L281">		return lblHsnErrorMsg.getText().trim();</span>
 	}
 	
 	/**
@@ -280,11 +288,12 @@ public class CarInsuranceHelper {
 	 * @return errorMsg
 	 */
 	public String validateAgeCriteria(String date) {
-<span class="fc" id="L283">		wrapper.waitAndSendKeys(driver, txtDOB, timeOutPeriod, date);</span>
-<span class="fc" id="L284">		btnSubmit2.click();</span>
-<span class="fc" id="L285">		wrapper.waitForElementTobeDisplayed(driver, lblDOBErrorMsg, timeOutPeriod);</span>
+<span class="fc" id="L291">		Reporter.log(&quot;Inside validateAgeCriteria method&quot;);</span>
+<span class="fc" id="L292">		wrapper.waitAndSendKeys(driver, txtDOB, timeOutPeriod, date);</span>
+<span class="fc" id="L293">		btnSubmit2.click();</span>
+<span class="fc" id="L294">		wrapper.waitForElementTobeDisplayed(driver, lblDOBErrorMsg, timeOutPeriod);</span>
 		
-<span class="fc" id="L287">		return lblDOBErrorMsg.getText().trim();</span>
+<span class="fc" id="L296">		return lblDOBErrorMsg.getText().trim();</span>
 	}
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

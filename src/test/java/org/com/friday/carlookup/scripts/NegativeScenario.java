@@ -82,12 +82,12 @@ public class NegativeScenario extends DriverFactory{
 	 * for below 18 Date of Birth.
 	 */
 	@Test(groups = {"negative"},dataProvider="data-provider",dataProviderClass=InputDataProvider.class)
-	public void Negative_Under18DOB(String Scenario,String Make,String Model,String BodyType,String FuelType,
-			String EnginePower,String Engine,String HSNTSN,String FirstRegistrationMonth,String FirstRegistrationYear,String SupportingDetails) {
+	public void Negative_Under18DOB(String scenario,String make,String model,String bodyType,String fuelType,
+			String enginePower,String engine,String HSNTSN,String firstRegistrationMonth,String firstRegistrationYear,String supportingDetails) {
 		
 		try {
 			Reporter.log("Inside Negative_Under18DOB method");
-			String[] insuranceDetails = SupportingDetails.split("\\|");
+			String[] insuranceDetails = supportingDetails.split("\\|");
 			
 			CarInsuranceHelper carInsuranceHelper= new CarInsuranceHelper(getDriver());
 			getDriver().get(FileUtil.readPropertyFile().getProperty("url"));
@@ -96,7 +96,7 @@ public class NegativeScenario extends DriverFactory{
 			carInsuranceHelper.selectPreCondition(insuranceDetails[0]);
 			carInsuranceHelper.selectRegisteredOwner(insuranceDetails[1], insuranceDetails[2]);
 			
-			carInsuranceHelper.selectVehicle(Make, Model,BodyType, FuelType, EnginePower, HSNTSN, FirstRegistrationMonth+FirstRegistrationYear);
+			carInsuranceHelper.selectVehicle(make, model,bodyType, fuelType, enginePower, HSNTSN, firstRegistrationMonth+firstRegistrationYear);
 			String actualMsg = carInsuranceHelper.validateAgeCriteria("02012018");
 			
 			Reporter.log("Expected Message:::: Wir können keine Personen versichern, die jünger als 18 Jahre sind.");

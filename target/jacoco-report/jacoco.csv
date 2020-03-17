@@ -1,6 +1,6 @@
 GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
-carlookup,org.com.friday.carlookup.helper,CarInsuranceHelper,23,469,4,16,4,66,4,15,0,9
+carlookup,org.com.friday.carlookup.helper,CarInsuranceHelper,23,485,4,16,4,74,4,15,0,9
 carlookup,org.com.friday.carlookup.utils,FileUtil,20,23,0,0,5,9,1,1,1,1
 carlookup,org.com.friday.carlookup.utils,InputDataProvider,21,117,0,4,5,25,1,4,1,2
 carlookup,org.com.friday.carlookup.utils,WebDriverWrapper,63,89,0,0,12,24,0,5,0,5
-carlookup,org.com.friday.carlookup.utils,DriverFactory,74,149,3,1,13,33,3,6,1,6
+carlookup,org.com.friday.carlookup.utils,DriverFactory,86,149,5,1,16,33,4,6,1,6
