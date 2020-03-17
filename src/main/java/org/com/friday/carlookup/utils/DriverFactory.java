@@ -63,9 +63,6 @@ public class DriverFactory {
 		}else if(browserName.equalsIgnoreCase("FIREFOX")){
 			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
-		}else if(browserName.equalsIgnoreCase("EDGE")) {
-			WebDriverManager.edgedriver().setup();
-			driver = new EdgeDriver();
 		}
 
 		DriverFactory.setWebDriver(driver);
