@@ -34,11 +34,12 @@ _Please note: SupportingDetails(Column K) denotes values for below fields._**
 * _src/test/resources_ : Contains inputdata sheet and properties file that stores salesfunnel url.
 
 ### Steps to build/Run:
+Run as Maven Build
 clean install -Dbrowsername=chrome -Dgroups=positive
-Please note: Test (Row11-CarLookupPositive) marked as failed to showcase screenshot feature. You may wish to change the ‘scenario’(Column A) name to skip the same.
+
 Valid values are :
-•	Browser : chrome,firefox
-•	Groups : positive,negative,regression
+*	Browser : chrome,firefox
+*	Groups : positive,negative,regression
 
 
 ### Reporting:
