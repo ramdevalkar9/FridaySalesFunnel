@@ -21,17 +21,17 @@ public class NegativeScenario extends DriverFactory{
 	 * browser parameter in testng.xml
 	 * @param browser
 	 */
-	@Parameters({"browserName"})
+	@Parameters({"browsername"})
 	@BeforeMethod(alwaysRun = true)
-	public void setup(String browser) {
-		initializeWebDriver(browser);
+	public void setup(String browsername) {
+		initializeWebDriver(browsername);
 	}
 	
 	/**
 	 * Negative scenario to test if website throws correct error message
 	 * for incorrect registration date.
 	 */
-	@Test(groups = {"negative"})
+	@Test(groups = {"negative","regression"})
 	public void Negative_InvalidRegDate() {
 		
 		try {
@@ -55,7 +55,7 @@ public class NegativeScenario extends DriverFactory{
 	 * Negative scenario to test if website throws correct error message
 	 * for incorrect HSN/TSN value.
 	 */
-	@Test(groups = {"negative"})
+	@Test(groups = {"negative","regression"})
 	public void Negative_InvalidHSNTSN() {
 		
 		try {
@@ -81,7 +81,7 @@ public class NegativeScenario extends DriverFactory{
 	 * Negative scenario to test if website throws correct error message
 	 * for below 18 Date of Birth.
 	 */
-	@Test(groups = {"negative"},dataProvider="data-provider",dataProviderClass=InputDataProvider.class)
+	@Test(groups = {"negative","regression"},dataProvider="data-provider",dataProviderClass=InputDataProvider.class)
 	public void Negative_Under18DOB(String scenario,String make,String model,String bodyType,String fuelType,
 			String enginePower,String engine,String HSNTSN,String firstRegistrationMonth,String firstRegistrationYear,String supportingDetails) {
 		

@@ -1,17 +1,20 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
-<suite name="BookingTests">
-	<parameter name="browserName" value="chrome" />
+<suite name="FridaySalesFunnel" >
+	<parameter name="browserName" value="chrome"/>
+	<listeners>
+		<listener class-name="org.com.friday.carlookup.listeners.ExtentReporterNG"/>
+	</listeners>
 	<test name="TestngTests">
-		<groups>
-			<define name="all">
+		<!-- <groups>
+			<define name="regression">
 				<include name="positive" />
 				<include name="negative" />
 			</define>
 
 			<run>
-				<include name="all" />
+				<include name="regression" />
 			</run>
-		</groups>
+		</groups> -->
 		<packages>
 			<package name="org.com.friday.carlookup.scripts" />
 		</packages>

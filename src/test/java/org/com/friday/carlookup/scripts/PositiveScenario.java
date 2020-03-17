@@ -13,6 +13,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.relevantcodes.extentreports.ExtentTest;
+
 public class PositiveScenario extends DriverFactory{
 	
 	/**
@@ -20,10 +22,10 @@ public class PositiveScenario extends DriverFactory{
 	 * browser parameter in testng.xml
 	 * @param browser
 	 */
-	@Parameters({"browserName"})
+	@Parameters({"browsername"})
 	@BeforeMethod(alwaysRun = true)
-	public void setup(String browser) {
-		initializeWebDriver(browser);
+	public void setup(String browsername) {
+		initializeWebDriver(browsername);
 	}
 	
 	/**
@@ -43,11 +45,10 @@ public class PositiveScenario extends DriverFactory{
 	 * @param FirstRegistrationYear
 	 * @param SupportingDetails
 	 */
-	@Test(groups = {"positive"},dataProvider="data-provider",dataProviderClass=InputDataProvider.class)
+	@Test(groups = {"positive","regression"},dataProvider="data-provider",dataProviderClass=InputDataProvider.class)
 	public void CarLookupPositive(String scenario,String make,String model,String bodyType,String fuelType,
 			String enginePower,String engine,String HSNTSN,String firstRegistrationMonth,String firstRegistrationYear,String supportingDetails) {
 		try {
-			
 			String[] insuranceDetails = supportingDetails.split("\\|");
 			
 			CarInsuranceHelper carInsuranceHelper= new CarInsuranceHelper(getDriver());
