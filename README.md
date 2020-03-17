@@ -35,6 +35,7 @@ _Please note: SupportingDetails(Column K) denotes values for below fields._**
 
 ### Steps to build/Run:
 Run as Maven Build
+
 clean install -Dbrowsername=chrome -Dgroups=positive
 
 Valid values are :
